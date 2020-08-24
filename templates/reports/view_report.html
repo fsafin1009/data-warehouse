@@ -1,0 +1,21 @@
+{% include 'base.html' %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="card-header">
+           Category : <a href="{{ report_item.category.get_absolute_url }}">{{ report_item.category }}</a>
+        </div>
+        <div class="card-body">
+            <div class="media">
+                <div class="media-body">
+                    <h5 class="card-title">{{ report_item.title }}</h5>
+                    <p class="card-text">{{ report_item.content }}</p>
+                </div>
+            </div>
+            s
+        </div>
+        <div class="card-footer text-muted">
+            {{ report_item.created_at|date:"Y-m-d H:i" }}
+        </div>
+    </div>
+{% endblock %}

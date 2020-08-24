@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -12,6 +13,9 @@ class Report(models.Model):
     is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
 
 
+    def get_absolute_url(self):
+        return reverse('view_reports', kwargs={'report_id': self.pk})
+
     def __str__(self):
         return self.title
 
@@ -24,6 +28,9 @@ class Report(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=150, db_index=True, verbose_name='Название категори')
 
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"category_id": self.pk})
+
     def __str__(self):
         return self.title
 
@@ -31,3 +38,4 @@ class Category(models.Model):
         verbose_name = "Категория"
         verbose_name_plural = "Категори"
         ordering = ['title']
+

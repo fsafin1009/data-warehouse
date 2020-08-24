@@ -1,9 +1,5 @@
-{% extends 'base.html' %}
+{% include 'base.html' %}
 
-
-{% block sidebar %}
-    <h1>Меню:</h1>
-{% endblock %}
 {% block content %}
     {% for item in reports %}
         <div class="card mb-3">
@@ -23,7 +19,5 @@
                 {{ item.created_at|date:"Y-m-d H:i" }}
             </div>
         </div>
-
-
     {% endfor %}
 {% endblock %}
