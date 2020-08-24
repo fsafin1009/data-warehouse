@@ -5,13 +5,13 @@ from django.urls import reverse
 
 
 class Report(models.Model):
+
     title = models.CharField(max_length=150, verbose_name="Имя статьи")
     content = models.TextField(blank=True, verbose_name="Контент")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
-
 
     def get_absolute_url(self):
         return reverse('view_reports', kwargs={'report_id': self.pk})
@@ -36,6 +36,6 @@ class Category(models.Model):
 
     class Meta:
         verbose_name = "Категория"
-        verbose_name_plural = "Категори"
+        verbose_name_plural = "Категории"
         ordering = ['title']
 
