@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+</head>
+<body>
+
+
+{% block content %}
+<p class="text-danger text-xl-center">Вы вышли с сайта!</p>
+
+<a href="{% url 'login'%}">Click here to login again.</a>
+{% endblock %}
+</body>
+</html>

@@ -39,3 +39,4 @@ def add_report(request):
     else:
         form =  ReportForm()
     return render(request, 'reports/add_report.html',{'form': form} )
+
